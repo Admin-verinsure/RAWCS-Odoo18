@@ -47,24 +47,10 @@ jobs:
               pip install openpyxl qifparse pyfcm httpagentparser dropbox pyncclient nextcloud-api-wrapper boto3 paramiko
               EOF
 
-       #- name: Set up SSH key
-       # env:
-         # SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-       # run: |
-         # mkdir -p ~/.ssh
-         # echo "$SSH_PRIVATE_KEY" > ~/.ssh/not4profit
-        #  chmod 600 ~/.ssh/not4profit
-          #ssh-keyscan -H 45.113.8.66 >> ~/.ssh/known_hosts
+      - name: 📂 Deploy Module to Odoo Server
+        run: |
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/account_move_multi_cancel ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
-      #- name: Deploy to Odoo Server
-       # run: |
-        # scp -r ./addons/account_move_multi_cancel root@103.19.4.104:/opt/odoo/addons/Not4Profit.online/addons/
-       
-
-
-      #- name: 📂 Deploy Module to Odoo Server
-        #run: |
-             #scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_account_budget ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
       - name: Start Odoo Server
         run: |
