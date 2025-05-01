@@ -1,0 +1,71 @@
+name: Odoo18 CICD for RAWCS
+
+on:
+  push:
+    branches:
+      - main  # Change if using another branch ---Keep if deploying other modules from the main branch
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget git python3-dev python3-pip build-essential libxslt1-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev libpq-dev
+
+      - name: Create a virtual environment
+        run: |
+            python -m venv /opt/odoo/venv
+            source /opt/odoo/venv/bin/activate
+            pip install --upgrade pip  
+            pip install wheel cryptography  
+
+      - name: 🔑 Set Up SSH Connection
+        env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+              echo "$SSH_PRIVATE_KEY" > private_key && chmod 600 private_key
+              eval "$(ssh-agent -s)"
+              ssh-add private_key
+          
+      - name: ✅ Test SSH Connection
+        run: |
+             ssh -i private_key -o StrictHostKeyChecking=no ubuntu@45.113.8.66 "echo '✅ SSH Connection Successful!'"
+          
+      - name: Install Python dependencies on Odoo server
+        run: |
+              ssh -i private_key -o StrictHostKeyChecking=no ubuntu@45.113.8.66 << 'EOF'
+              python3 -m venv /home/ubuntu/venv
+              source /home/ubuntu/venv/bin/activate
+              pip install --upgrade pip
+              pip install openpyxl qifparse pyfcm httpagentparser dropbox pyncclient nextcloud-api-wrapper boto3 paramiko
+              EOF
+
+      #- name: Set up SSH key
+       # env:
+         # SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+       # run: |
+         # mkdir -p ~/.ssh
+         # echo "$SSH_PRIVATE_KEY" > ~/.ssh/not4profit
+        #  chmod 600 ~/.ssh/not4profit
+          #ssh-keyscan -H 45.113.8.66 >> ~/.ssh/known_hosts
+
+      #- name: Deploy to Odoo Server
+       # run: |
+        # scp -r ./addons/account_move_multi_cancel root@103.19.4.104:/opt/odoo/addons/Not4Profit.online/addons/
+       
+
+
+      #- name: 📂 Deploy Module to Odoo Server
+        #run: |
+              #scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_account_budget ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+
+      - name: Start Odoo Server
+        run: |
+              ssh -i private_key -o StrictHostKeyChecking=no ubuntu@45.113.8.66 "sudo systemctl start odoo18"
