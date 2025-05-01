@@ -53,6 +53,10 @@ jobs:
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/app_menu_alphabetical_order ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/auto_daily_weekly_report ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/auto_database_backup ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/odoo_dynamic_dashboard ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/odoo_google_meet_integration ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/odoo_website_helpdesk ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/odoo_website_helpdesk_dashboard ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
 
 
