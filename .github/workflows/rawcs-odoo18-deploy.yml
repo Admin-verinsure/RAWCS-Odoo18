@@ -67,7 +67,7 @@ jobs:
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/size_restriction_for_attachments ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/subscription_package ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/user_login_alert ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
-              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/user_login_alert ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/users_ldap_mail ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/volunteers_donors_management ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/website_event ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/website_gdpr_odoo ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
