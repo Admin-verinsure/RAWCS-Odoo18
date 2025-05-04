@@ -78,6 +78,10 @@ jobs:
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_accounting_kit ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_user_role ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/bi_sms_client_generic ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/contact_documents ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/contacts_birthday_greetings ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/database_delete_protection ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/easy_chatgpt_access ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
 
 
