@@ -74,6 +74,10 @@ jobs:
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/website_pdf_preview_snippet ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/whatsapp_mail_messaging ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/whatsapp_redirect ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_account_budget ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_accounting_kit ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/base_user_role ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/bi_sms_client_generic ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
 
 
