@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # Change if using another branch ---Keep if deploying other modules from the main branch
+      - dms-odoo18  # Add this to deploy the DMS module...
 
 jobs:
 
@@ -93,6 +94,8 @@ jobs:
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/membership ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/membership_rotary_modifications ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/dms ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/dms_user_role ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
 
 
 
