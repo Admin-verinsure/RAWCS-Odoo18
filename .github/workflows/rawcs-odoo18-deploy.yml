@@ -94,7 +94,6 @@ jobs:
 
 
 
-
       - name: Start Odoo Server
         run: |
               ssh -i private_key -o StrictHostKeyChecking=no ubuntu@45.113.8.66 "sudo systemctl start odoo18"
