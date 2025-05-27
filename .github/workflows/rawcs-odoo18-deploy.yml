@@ -96,6 +96,9 @@ jobs:
 
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/dms ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/dms_user_role ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/dms_field ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/hr_dms_field ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/dms/dms_auto_classification ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/dms/
 
 
 
