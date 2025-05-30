@@ -8,9 +8,18 @@ _logger = logging.getLogger(__name__)
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
+    #changed code here
+    last_logged_ip = fields.Char(string="Last Logged IP", readonly=True)
+    last_logged_browser = fields.Char(string="Last Logged Browser", readonly=True)
+    last_logged_os = fields.Char(string="Last Logged OS", readonly=True)
 
     @classmethod
+<<<<<<< HEAD
     def authenticate(cls, db, login, password, user_agent_env=None):
+=======
+    def authenticate(cls, db, login, password):
+        user_agent_env = None #chnaged code here
+>>>>>>> main
         res = cls._login(db, login, password)
         if isinstance(res, tuple):
             uid, _ = res
