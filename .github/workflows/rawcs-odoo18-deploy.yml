@@ -91,9 +91,9 @@ jobs:
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/master_search ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/membership ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
               scp -i private_key -o StrictHostKeyChecking=no -r ./addons/membership_rotary_modifications ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
-              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/mass-mailing ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
+              scp -i private_key -o StrictHostKeyChecking=no -r ./addons/mass-mailing/mass_mailing_custom_unsubscribe ubuntu@45.113.8.66:/opt/odoo18/odoo18-addons/
 
-
+              
       - name: Start Odoo Server
         run: |
               ssh -i private_key -o StrictHostKeyChecking=no ubuntu@45.113.8.66 "sudo systemctl start odoo18"
